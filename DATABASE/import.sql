@@ -30,3 +30,12 @@ CREATE TABLE `managers` (
     email VARCHAR(100) NOT NULL,
     phone_number VARCHAR(50) NOT NULL
 );
+
+CREATE TABLE `reservations` (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    property_id INT NOT NULL,
+    manager_id INT NOT NULL,
+    check_in DATE NOT NULL,
+    check_out DATE NOT NULL
+);

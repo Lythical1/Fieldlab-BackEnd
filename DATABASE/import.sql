@@ -4,11 +4,11 @@ CREATE DATABASE `stay_nl`;
 
 USE `stay_nl`;
 
-CREATE TABLE `customers` (
+CREATE TABLE `managers` (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(250) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    property_id INT NOT NULL
+    phone_number VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE `properties` (
@@ -21,14 +21,16 @@ CREATE TABLE `properties` (
     location VARCHAR(250) NOT NULL,
     check_in DATE NOT NULL,
     check_out DATE NOT NULL,
-    manager_id INT NOT NULL
+    manager_id INT NOT NULL,
+    FOREIGN KEY (manager_id) REFERENCES managers(id)
 );
 
-CREATE TABLE `managers` (
+CREATE TABLE `customers` (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(250) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    phone_number VARCHAR(50) NOT NULL
+    property_id INT NOT NULL,
+    FOREIGN KEY (property_id) REFERENCES properties(id)
 );
 
 CREATE TABLE `reservations` (
@@ -37,5 +39,8 @@ CREATE TABLE `reservations` (
     property_id INT NOT NULL,
     manager_id INT NOT NULL,
     check_in DATE NOT NULL,
-    check_out DATE NOT NULL
+    check_out DATE NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customers(id),
+    FOREIGN KEY (property_id) REFERENCES properties(id),
+    FOREIGN KEY (manager_id) REFERENCES managers(id)
 );

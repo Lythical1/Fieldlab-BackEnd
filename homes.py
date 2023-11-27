@@ -21,7 +21,7 @@ def generate_vacation_home(id, places):
 
 def generate_sql_insert_statement(home):
     return f"""
-    INSERT INTO properties (id, title, rating, description, availability, price, location, check_in, check_out, manager_id)
+    INSERT INTO properties (title, rating, description, availability, price, location, check_in, check_out, manager_id)
     VALUES ('{home['title']}', {home['rating']}, '{home['description']}', {home['availability']},
     {home['price']}, '{home['location']}', '{home['check_in']}', '{home['check_out']}', {home['manager_id']});
     """

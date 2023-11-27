@@ -17,7 +17,3 @@
 
     INSERT INTO managers (id, name, email, phone_number)
     VALUES (5, 'Manager Three', 'manager_four@company3.com', '+979-976-1820');
-
-    INSERT INTO managers (id, name, email, phone_number)
-    VALUES (6, 'Manager Four', 'manager_'
-    

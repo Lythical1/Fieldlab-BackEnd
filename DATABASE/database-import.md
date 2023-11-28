@@ -1,0 +1,1 @@
+om de database op te zetten moeten we eerst de import, daarna de managers, daarna de homes, customers en reservations op die volgorde erin zetten!

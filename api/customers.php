@@ -1,19 +1,16 @@
 <?php
 
-// users.php
-
-// Define a simple array of users for demonstration purposes
-$users = [
-    ['id' => 1, 'name' => 'John Doe'],
-    ['id' => 2, 'name' => 'Jane Doe'],
-];
-
-// Function to get all users
-function getUsers()
+// Function to get all custemors
+function getCustomers()
 {
-    global $users;
+    include '../database/connect.php';
+    // get all customers using the query
+    $query = "SELECT * FROM customers";
+    $statement = $pdo->prepare($query);
+    $statement->execute();
+    $customers = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     // Send a JSON response
     header('Content-Type: application/json');
-    echo json_encode($users);
+    echo json_encode($customers);
 }

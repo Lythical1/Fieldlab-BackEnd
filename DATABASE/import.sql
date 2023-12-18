@@ -7,8 +7,7 @@ USE `stay_nl`;
 CREATE TABLE `customers` (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(250) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    property_id INT NOT NULL
+    email VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE `properties` (

@@ -1,17 +1,14 @@
 <?php
 
-// use connect.php to connect to the database
-include 'database/connect.php';
-
-// Function to get all users
+// Function to get all properties
 function getProperties()
 {
+    include '../database/connect.php';
     // get all properties using the query
     $query = "SELECT * FROM properties";
-    $statement = $db->prepare($query);
+    $statement = $pdo->prepare($query);
     $statement->execute();
-    $properties = $statement->fetchAll();
-    $statement->closeCursor();
+    $properties = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     // Send a JSON response
     header('Content-Type: application/json');

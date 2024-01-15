@@ -3,7 +3,7 @@
 // require all the files for the endpoints
 require_once 'properties.php';
 require_once 'customers.php';
-require_once 'bookings.php';
+require_once 'reservationget.php';
 require_once 'reviews.php';
 
 // Define a simple router
@@ -16,16 +16,12 @@ if ($request_method === 'GET' && $request_uri === '/api/properties') {
     getProperties();
 } elseif ($request_method === 'GET' && $request_uri === '/api/customers') {
     getCustomers();
+} elseif ($request_method === 'GET' && $request_uri === '/api/reservations') {
+    getReservations();
+} elseif ($request_method === 'GET' && $request_uri === '/api/managers') {
+    getManagers();
 } else {
     // Handle invalid endpoint
     http_response_code(404);
     echo json_encode(['error' => 'Endpoint not found']);
-}
-
-if ($request_method === 'GET') {
-    try {
-        
-    } catch (\Throwable $th) {
-        //throw $th;
-    }
 }

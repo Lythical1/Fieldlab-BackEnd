@@ -2,8 +2,8 @@
 
 $host = 'localhost';
 $db = 'stay_nl';
-$user = 'root';
-$pass = 'root';
+$user = 'bit_academy';
+$pass = 'bit_academy';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);

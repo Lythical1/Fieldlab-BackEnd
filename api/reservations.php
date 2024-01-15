@@ -8,9 +8,9 @@ function getReservations()
     $query = "SELECT * FROM rservations";
     $statement = $pdo->prepare($query);
     $statement->execute();
-    $properties = $statement->fetchAll();
+    $reservations = $statement->fetchAll();
 
     // Send a JSON response
     header('Content-Type: application/json');
-    echo json_encode($properties);
+    echo json_encode($reservations);
 }
